@@ -34,6 +34,7 @@ class DisplayUI(object):
         self.get_space = SpaceInfo("http://api.open-notify.org/iss-now.json","http://api.open-notify.org/astros.json")
         self.instruction_and_pomp_display()
 
+    #announce the launch of the program and instructions
     def instruction_and_pomp_display(self):
         os.system('clear')
         print("------------------------------------------------------------")
@@ -44,6 +45,7 @@ class DisplayUI(object):
         print(" To exit type 'iss -x'")
         self.main_display()
 
+    #the main loop that controls input from the console to determine the necessary action
     def main_display(self):
         choice = ''
         while choice != 'exit':
@@ -58,6 +60,8 @@ class DisplayUI(object):
             else:
                 print("\nI didn't understand that choice.\n")
 
+    #the API returns JSON which may have nested enumarable values, this recursive function 
+    #enumerates through the whole JSON converted to a dictionary and displays to the user
     def __process_dict_to_view(self,dict_item):
         if type(dict_item)==type([]):
             for key,val in enumerate(dict_item):
@@ -79,6 +83,6 @@ class DisplayUI(object):
                     print("%s : %s"%(key,val))
 
 
-
+#entry point of program
 if __name__ == '__main__':
     display = DisplayUI()
