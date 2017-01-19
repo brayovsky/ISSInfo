@@ -58,7 +58,10 @@ class DisplayUI(object):
             elif choice == 'iss -x':
                 choice = "exit"               
             else:
-                print("\nI didn't understand that choice.\n")
+                print(""""\nI didn't understand that choice.\n
+                    To know number of people in space type 'iss -n'\n
+                    To know position of iss type 'iss -p'\n
+                    To exit type 'iss -x'""")
 
     #the API returns JSON which may have nested enumarable values, this recursive function 
     #enumerates through the whole JSON converted to a dictionary and displays to the user
